@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试Promise</title>
+</head>
+
+<body>
+    <script src="Promise.js"></script>
+    <!-- <script src="Promise_class.js"></script> -->
+    <script>
+        // const p = new Promise((resolve, reject) => {
+        //     // resolve(1)
+        //     setTimeout(() => {
+        //         resolve(1)
+        //     }, 200);
+        //     // setTimeout(() => {
+        //     //     reject(2)
+        //     // }, 200);
+        // }).then(
+        //     value => {
+        //         console.log('onResolve1' + value)
+        //         return new Promise((resolve, reject) => { resolve(11) })
+
+        //     },
+        //     reason => { console.log(reason) }
+        // ).then(
+        //     value => {
+        //         console.log('onResolved2' + value)
+        //         return new Promise((resolve, reject) => { resolve(22) })
+
+        //     },
+        //     reason => {
+        //         console.log('onRejected2' + reason)
+        //         throw 3
+        //     }
+        // ).catch(
+        //     reason => {
+        //         console.log('onRejected3' + reason)
+        //     }
+        // ).then(
+        //     value => {
+        //         console.log('onResolved4' + value)
+
+        //     },
+        //     reason => {
+        //         console.log('onRejected4' + reason)
+        //     }
+        // )
+        const p1 = Promise.resolve(1)
+        const p2 = Promise.resolve(Promise.resolve(2))
+        const p3 = Promise.resolve(Promise.reject(3))
+        const p4 = Promise.resolve(Promise.reject(4))
+        // p1.then(
+        //     value => {
+        //         console.log('resolved' + value)
+        //     },
+        //     reason => {
+        //         console.log('rejected' + reason)
+        //     }
+
+        // )
+        // p2.then(
+        //     value => {
+        //         console.log('resolved' + value)
+        //     },
+        //     reason => {
+        //         console.log('rejected' + reason)
+        //     }
+
+        // )
+        // p3.then(
+        //     value => {
+        //         console.log('resolved' + value)
+        //     },
+        //     reason => {
+        //         console.log('rejected' + reason)
+        //     }
+
+        // )
+
+        // p4.then(
+        //     value => {
+        //         console.log('resolved' + value)
+        //     },
+        //     reason => {
+        //         console.log('rejected' + reason)
+        //     }
+
+        // )
+        // const pall = Promise.all([p1, p2, p4, p3])
+        // pall.then(
+        //     values => {
+        //         console.log('all resolved' + values)
+        //     },
+        //     reason => {
+        //         console.log('all rejected' + reason)
+        //     }
+        // )
+        const pReace = Promise.race([p1, 7, p2])
+        pReace.then(
+            values => {
+                console.log('all resolved' + values)
+            },
+            reason => {
+                console.log('all rejected' + reason)
+            }
+        )
+    </script>
+</body>
